@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9B8F10B1A5BB75E00851BB6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B8F1091A5BB75E00851BB6 /* SettingsViewController.m */; };
+		F9B8F10C1A5BB75E00851BB6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B8F10A1A5BB75E00851BB6 /* SettingsViewController.xib */; };
 		F9F20F001A3ECAEE00F68254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F20EFF1A3ECAEE00F68254 /* Foundation.framework */; };
 		F9F20F021A3ECAEE00F68254 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F20F011A3ECAEE00F68254 /* CoreGraphics.framework */; };
 		F9F20F041A3ECAEE00F68254 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F20F031A3ECAEE00F68254 /* UIKit.framework */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9B8F1081A5BB75E00851BB6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F9B8F1091A5BB75E00851BB6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		F9B8F10A1A5BB75E00851BB6 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		F9F20EFC1A3ECAEE00F68254 /* tipcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipcalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F20EFF1A3ECAEE00F68254 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F9F20F011A3ECAEE00F68254 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +112,9 @@
 				F9F20F061A3ECAEE00F68254 /* Supporting Files */,
 				F9F20F291A3ECE1F00F68254 /* TipViewController.h */,
 				F9F20F2A1A3ECE1F00F68254 /* TipViewController.m */,
+				F9B8F1081A5BB75E00851BB6 /* SettingsViewController.h */,
+				F9B8F1091A5BB75E00851BB6 /* SettingsViewController.m */,
+				F9B8F10A1A5BB75E00851BB6 /* SettingsViewController.xib */,
 				F9F20F2B1A3ECE1F00F68254 /* TipViewController.xib */,
 			);
 			path = tipcalculator;
@@ -220,6 +228,7 @@
 				F9F20F0B1A3ECAEE00F68254 /* tipcalculator-Info.plist in Resources */,
 				F9F20F2D1A3ECE1F00F68254 /* TipViewController.xib in Resources */,
 				F9F20F0D1A3ECAEE00F68254 /* tipcalculator-Prefix.pch in Resources */,
+				F9B8F10C1A5BB75E00851BB6 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +250,7 @@
 				F9F20F101A3ECAEE00F68254 /* AppDelegate.m in Sources */,
 				F9F20F2C1A3ECE1F00F68254 /* TipViewController.m in Sources */,
 				F9F20F091A3ECAEE00F68254 /* main.m in Sources */,
+				F9B8F10B1A5BB75E00851BB6 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +416,7 @@
 				F9F20F251A3ECAEE00F68254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9F20F261A3ECAEE00F68254 /* Build configuration list for PBXNativeTarget "tipcalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +425,7 @@
 				F9F20F281A3ECAEE00F68254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
