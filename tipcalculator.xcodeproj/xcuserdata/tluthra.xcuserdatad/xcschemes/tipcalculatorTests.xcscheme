@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9F20EFB1A3ECAEE00F68254"
-               BuildableName = "tipcalculator.app"
-               BlueprintName = "tipcalculator"
+               BlueprintIdentifier = "F9F20F161A3ECAEE00F68254"
+               BuildableName = "tipcalculatorTests.xctest"
+               BlueprintName = "tipcalculatorTests"
                ReferencedContainer = "container:tipcalculator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,13 +28,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F9F20F161A3ECAEE00F68254"
+               BuildableName = "tipcalculatorTests.xctest"
+               BlueprintName = "tipcalculatorTests"
+               ReferencedContainer = "container:tipcalculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F20EFB1A3ECAEE00F68254"
-            BuildableName = "tipcalculator.app"
-            BlueprintName = "tipcalculator"
+            BlueprintIdentifier = "F9F20F161A3ECAEE00F68254"
+            BuildableName = "tipcalculatorTests.xctest"
+            BlueprintName = "tipcalculatorTests"
             ReferencedContainer = "container:tipcalculator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -48,15 +58,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F20EFB1A3ECAEE00F68254"
-            BuildableName = "tipcalculator.app"
-            BlueprintName = "tipcalculator"
+            BlueprintIdentifier = "F9F20F161A3ECAEE00F68254"
+            BuildableName = "tipcalculatorTests.xctest"
+            BlueprintName = "tipcalculatorTests"
             ReferencedContainer = "container:tipcalculator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -66,15 +76,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F20EFB1A3ECAEE00F68254"
-            BuildableName = "tipcalculator.app"
-            BlueprintName = "tipcalculator"
+            BlueprintIdentifier = "F9F20F161A3ECAEE00F68254"
+            BuildableName = "tipcalculatorTests.xctest"
+            BlueprintName = "tipcalculatorTests"
             ReferencedContainer = "container:tipcalculator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

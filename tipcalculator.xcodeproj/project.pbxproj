@@ -18,6 +18,8 @@
 		F9F20F191A3ECAEE00F68254 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F20F181A3ECAEE00F68254 /* XCTest.framework */; };
 		F9F20F1E1A3ECAEE00F68254 /* tipcalculatorTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9F20F1D1A3ECAEE00F68254 /* tipcalculatorTests-Info.plist */; };
 		F9F20F201A3ECAEE00F68254 /* tipcalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F20F1F1A3ECAEE00F68254 /* tipcalculatorTests.m */; };
+		F9F20F2C1A3ECE1F00F68254 /* TipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F20F2A1A3ECE1F00F68254 /* TipViewController.m */; };
+		F9F20F2D1A3ECE1F00F68254 /* TipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F20F2B1A3ECE1F00F68254 /* TipViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		F9F20F1C1A3ECAEE00F68254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9F20F1D1A3ECAEE00F68254 /* tipcalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tipcalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		F9F20F1F1A3ECAEE00F68254 /* tipcalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tipcalculatorTests.m; sourceTree = "<group>"; };
+		F9F20F291A3ECE1F00F68254 /* TipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipViewController.h; sourceTree = "<group>"; };
+		F9F20F2A1A3ECE1F00F68254 /* TipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipViewController.m; sourceTree = "<group>"; };
+		F9F20F2B1A3ECE1F00F68254 /* TipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,9 @@
 				F9F20F0F1A3ECAEE00F68254 /* AppDelegate.m */,
 				F9F20F111A3ECAEE00F68254 /* Images.xcassets */,
 				F9F20F061A3ECAEE00F68254 /* Supporting Files */,
+				F9F20F291A3ECE1F00F68254 /* TipViewController.h */,
+				F9F20F2A1A3ECE1F00F68254 /* TipViewController.m */,
+				F9F20F2B1A3ECE1F00F68254 /* TipViewController.xib */,
 			);
 			path = tipcalculator;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			files = (
 				F9F20F121A3ECAEE00F68254 /* Images.xcassets in Resources */,
 				F9F20F0B1A3ECAEE00F68254 /* tipcalculator-Info.plist in Resources */,
+				F9F20F2D1A3ECE1F00F68254 /* TipViewController.xib in Resources */,
 				F9F20F0D1A3ECAEE00F68254 /* tipcalculator-Prefix.pch in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9F20F101A3ECAEE00F68254 /* AppDelegate.m in Sources */,
+				F9F20F2C1A3ECE1F00F68254 /* TipViewController.m in Sources */,
 				F9F20F091A3ECAEE00F68254 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +339,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = tipcalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -340,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = tipcalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

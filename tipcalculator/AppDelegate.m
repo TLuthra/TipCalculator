@@ -6,12 +6,21 @@
 //  Copyright (c) 2014 Tanooj Luthra. All rights reserved.
 //
 
+#import "AppDelegate.h"
+#import "TipViewController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    TipViewController *tvc = [[TipViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tvc];
+
+    self.window.rootViewController = nvc;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
