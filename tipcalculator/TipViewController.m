@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *equationLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *deliveryButton;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
@@ -24,6 +25,7 @@
 
 @property (weak, nonatomic) NSString *selectedType;
 @property (weak, nonatomic) NSString *selectedEmotion;
+@property (assign, nonatomic) BOOL *selectedButton;
 
 - (IBAction)onTap:(id)sender;
 - (void)updateValues;
@@ -43,10 +45,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
 
-    
+    UIImage *image = [[UIImage imageNamed:@"Settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
+
+    self.navigationItem.rightBarButtonItem = settingsButton;
+    UIColor *viewTint = [self view].tintColor;
+    [self.navigationController.navigationBar setTintColor:viewTint];
 
     NSDictionary *tipAmounts = [[NSUserDefaults standardUserDefaults] objectForKey:@"tipAmounts"];
 
@@ -56,18 +62,28 @@
                        @"bar":@{@"happy":@(0.20), @"sad":@(0.10)}};
         [[NSUserDefaults standardUserDefaults] setObject:tipAmounts forKey:@"tipAmounts"];
 
-        [[NSUserDefaults standardUserDefaults] setObject:@"restaurant" forKey:@"defaultType"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"delivery" forKey:@"defaultType"];
         [[NSUserDefaults standardUserDefaults] setObject:@"happy" forKey:@"defaultEmotion"];
+
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"roundTotal"];
     }
 
-    self.selectedType = [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultType"];
-    self.selectedEmotion = [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultEmotion"];
+    self.selectedButton = NO;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.selectedType = self.selectedButton ? self.selectedType : [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultType"];
+    self.selectedEmotion = self.selectedButton ? self.selectedEmotion :  [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultEmotion"];
+
+    [self updateValues];
+    [self selectButtons];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)onAmountChanged:(UITextField *)sender {
@@ -78,28 +94,16 @@
         billAmount = [billAmount substringFromIndex:1];
         number = [NSDecimalNumber decimalNumberWithString:billAmount];
     }
-//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-//    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-//    [formatter setLocale:[NSLocale currentLocale]];
+
     sender.text = [NSString stringWithFormat:@"$%@", billAmount];
     [self updateValues];
 }
 
 - (IBAction)onTap:(id)sender {
-    NSLog(@"this is the onTap %@", sender);
-
     [self.view endEditing:YES];
     [self updateValues];
 }
 - (IBAction)onChooseType:(UIButton *)sender {
-    NSLog(@"this is the on press %@ %ld", sender, (long)sender.tag);
-
-    [self.deliveryButton setAlpha:0.3];
-    [self.restaurantButton setAlpha:0.3];
-    [self.barButton setAlpha:0.3];
-
-    [sender setAlpha:1.0];
-
     if (sender.tag == 100) {
         self.selectedType = @"delivery";
     } else if (sender.tag == 101) {
@@ -107,19 +111,48 @@
     } else if (sender.tag == 102) {
         self.selectedType = @"bar";
     }
+
+    self.selectedButton = YES;
+    [self selectButtons];
 }
 - (IBAction)onChooseEmotion:(UIButton *)sender {
-    NSLog(@"this is the on choose emotion %@ %ld", sender, (long)sender.tag);
-
-    [self.happyButton setAlpha:0.3];
-    [self.sadButton setAlpha:0.3];
-
-    [sender setAlpha:1.0];
     if (sender.tag == 200) {
         self.selectedEmotion = @"happy";
     } else if (sender.tag == 201) {
         self.selectedEmotion = @"sad";
     }
+
+    self.selectedButton = YES;
+    [self selectButtons];
+}
+
+- (void)selectButtons {
+    [self.deliveryButton setAlpha:0.3];
+    [self.restaurantButton setAlpha:0.3];
+    [self.barButton setAlpha:0.3];
+
+    [self.happyButton setAlpha:0.3];
+    [self.sadButton setAlpha:0.3];
+
+    UIButton* selectedButton;
+
+    if ([self.selectedType isEqualToString:@"delivery"]) {
+        selectedButton = (UIButton *)[self.view viewWithTag:100];
+    } else if ([self.selectedType isEqualToString:@"restaurant"]) {
+        selectedButton = (UIButton *)[self.view viewWithTag:101];
+    } else if ([self.selectedType isEqualToString:@"bar"]) {
+        selectedButton = (UIButton *)[self.view viewWithTag:102];
+    }
+
+    [selectedButton setAlpha:1.0];
+
+    if ([self.selectedEmotion isEqualToString:@"happy"]) {
+        selectedButton = (UIButton *)[self.view viewWithTag:200];
+    } else if ([self.selectedEmotion isEqualToString:@"sad"]) {
+        selectedButton = (UIButton *)[self.view viewWithTag:201];
+    }
+
+    [selectedButton setAlpha:1.0];
 }
 
 - (void)updateValues {
@@ -128,20 +161,26 @@
     }
 
     float billAmount = [[self.billTextField.text substringFromIndex:1] floatValue];
-    NSLog(@"Bill Amount: %f", billAmount);
-//    float tipAmount = billAmount * [tipValues[self.tipControl.selectedSegmentIndex] floatValue];
 
     NSDictionary *tipAmounts = [[NSUserDefaults standardUserDefaults] objectForKey:@"tipAmounts"];
 
+    float tipPercentage = [[[tipAmounts objectForKey:self.selectedType] objectForKey:self.selectedEmotion] floatValue];
 
-    float tipAmount = billAmount * [[[tipAmounts objectForKey:self.selectedType] objectForKey:self.selectedEmotion] floatValue];
+    float tipAmount = billAmount * tipPercentage;
 
-//    float tipAmount = [@(0.1) floatValue];
     float totalAmount = billAmount + tipAmount;
+
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"roundTotal"]) {
+        totalAmount = lroundf(totalAmount);
+        tipAmount = totalAmount - billAmount;
+        tipPercentage = tipAmount / billAmount;
+    }
 
     self.tipLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
 
     self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", totalAmount];
+
+    self.equationLabel.text = [NSString stringWithFormat:@"$%0.2f + %ld%%", billAmount, lroundf(tipPercentage * 10000) / 100];
 
 }
 
